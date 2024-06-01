@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/mainLayout.html}">
+
+<div layout:fragment="content">
+    <form class="d-flex mb-3" action="/event/search" method="get" id="searchEventForm">
+        <input class="form-control me-2" type="search" aria-label="Search" name="query" placeholder="Search..." id="query">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+    <p id="noResultsMessage" style="display: none;">Ничего не найдено</p>
+
+    <div class="row events" id="eventsList"></div>
+    <script type="text/javascript" th:src="@{'/javascript/event-list.js'}"></script>
+</div>
+</html>

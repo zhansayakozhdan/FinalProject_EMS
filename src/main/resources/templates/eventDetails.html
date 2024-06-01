@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/mainLayout.html}">
+
+<div layout:fragment="content">
+    <form action="/event" method="post" class="col-6 mx-auto" id="updateEvent">
+        <div class="header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">EDIT AN EVENT</h1>
+        </div>
+        <input type="hidden" name="id" id="eventId">
+        <div class="mb-3">
+            <label for="eventNameInput" class="form-label">Название</label>
+            <input name="name" class="form-control" id="eventNameInput">
+        </div>
+        <div class="mb-3">
+            <label for="descriptionInput" class="form-label">О событии</label>
+            <textarea name="description" class="form-control" id="descriptionInput"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="dateInput" class="form-label">Дата:</label>
+            <input name="eventDate" class="form-control" id="dateInput" type="date">
+        </div>
+        <div class="mb-3">
+            <label for="timeInput" class="form-label">Начало:</label>
+            <input name="eventTime" class="form-control" id="timeInput" type="time">
+        </div>
+        <div class="mb-3">
+            <label for="venueInput" class="form-label">Место проведения:</label>
+            <input name="venue" class="form-control" id="venueInput">
+        </div>
+        <div class="mb-3">
+            <input type="hidden" id="eventTypeId">
+            <label for="eventTypeSelect" class="form-label">Жанр:</label>
+            <select id="eventTypeSelect" name="eventType" class="form-select eventTypeList">
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="quantityOfTicketsInput" class="form-label">Количество гостей:</label>
+            <input name="quantityOfTickets" class="form-control" id="quantityOfTicketsInput">
+        </div>
+        <div class="mb-3">
+            <label for="ticketCostInput" class="form-label">Цена билета:</label>
+            <input name="ticketCost" class="form-control" id="ticketCostInput">
+        </div>
+        <div class="footer">
+            <button type="submit" class="btn btn-success me-3">UPDATE EVENT</button>
+            <button type="button" class="btn btn-danger" id="deleteEventButton">DELETE EVENT</button>
+        </div>
+    </form>
+
+    <script type="text/javascript" th:src="@{'/javascript/event-details.js'}"></script>
+</div>
+</html>

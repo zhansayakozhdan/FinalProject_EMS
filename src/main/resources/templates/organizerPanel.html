@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/mainLayout.html}">
+
+<div layout:fragment="content">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#createEventModal" id="createEventButton">
+        + NEW EVENT
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="createEventModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Create New Event</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="/event" method="post" class="modal-body" id="formForCreateEvent">
+                    <div class="mb-3">
+                        <label for="inputEventName" class="form-label">Название</label>
+                        <input name="name" type="text" class="form-control" id="inputEventName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputDescription" class="form-label">О событии</label>
+                        <textarea name="description" class="form-control" type="text" id="inputDescription"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dateInput" class="form-label">Дата:</label>
+                        <input name="eventDate" type="date" class="form-control" id="dateInput">
+                    </div>
+                    <div class="mb-3">
+                        <label for="timeInput" class="form-label">Начало:</label>
+                        <input name="eventTime" type="time" class="form-control" id="timeInput">
+                    </div>
+                    <div class="mb-3">
+                        <label for="venueInput" class="form-label">Место проведения:</label>
+                        <input name="venue" type="text" class="form-control" id="venueInput">
+                    </div>
+                    <div class="mb-3">
+                        <label for="eventTypeSelect" class="form-label">Жанр:</label>
+                        <select id="eventTypeSelect" name="eventType" class="form-select eventTypeList">
+                         //options передаем из сервера
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantityOfTickets" class="form-label">Количество гостей:</label>
+                        <input name="quantityOfTickets" type="number" class="form-control" id="quantityOfTickets">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ticketCostInput" class="form-label">Цена билета:</label>
+                        <input name="ticketCost" type="number" class="form-control" id="ticketCostInput">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">ADD EVENT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>Quantity of Tickets</th>
+        <th>DETAILS</th>
+        </tr>
+        </thead>
+        <tbody class="eventList">
+        </tbody>
+    </table>
+    <script type="text/javascript" th:src="@{'/javascript/manage-events.js'}"></script>
+</div>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <include file="changes/2024-04-28-11-47-00-create-table-roles.sql" relativeToChangelogFile="true"/>
+    <include file="changes/2024-04-28-12-56-00-create-table-users.sql" relativeToChangelogFile="true"/>
+    <include file="changes/2024-04-28-12-57-00-create-relations-users-roles.sql" relativeToChangelogFile="true"/>
+    <include file="changes/2024-05-15-16-56-00-create-table-event-types.sql" relativeToChangelogFile="true"/>
+    <include file="changes/2024-05-15-17-00-00-create-table-events.sql" relativeToChangelogFile="true"/>
+    <include file="changes/2024-05-16-06-57-00-create-table-bookings.sql" relativeToChangelogFile="true"/>
+    <include file="changes/2024-05-25-11-07-00-create-table-comments.sql" relativeToChangelogFile="true"/>
+</databaseChangeLog>
