@@ -1,0 +1,18 @@
+--liquibase formatted sql
+-- changeset k.zhansaya:1
+CREATE TABLE COMMENTS
+(
+    ID BIGSERIAL,
+    VALUE TEXT,
+    CREATED_AT TIMESTAMP,
+    UPDATED_AT TIMESTAMP,
+    USER_ID BIGSERIAL,
+    EVENT_ID BIGSERIAL,
+    CONSTRAINT FK_USER FOREIGN KEY (USER_ID) REFERENCES USERS(ID),
+    CONSTRAINT FK_EVENT FOREIGN KEY (EVENT_ID) REFERENCES EVENTS(ID)
+);
+
+-- changeset k.zhansaya:2
+INSERT INTO COMMENTS(USER_ID, EVENT_ID, VALUE)
+VALUES (1, 1, 'I am so excited!!!'),
+       (2, 2, 'Жду не дождусь этого дня!!!');
